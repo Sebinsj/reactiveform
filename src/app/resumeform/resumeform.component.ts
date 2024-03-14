@@ -1,3 +1,4 @@
+import { group } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -11,6 +12,10 @@ export class ResumeformComponent implements OnInit {
 
   genders=['Male','Female','Others'];
   languages=['Engilsh','Hindi','Malayalam','Tamil','Others']
+  get addexp(){
+    return (<FormArray> this.resumeForm.get('experience')).controls
+
+  }
 
   ngOnInit(): void {
       this.resumeForm=new FormGroup({
@@ -29,20 +34,32 @@ export class ResumeformComponent implements OnInit {
           pincode:new FormControl(null,[Validators.required]),
           
         }),
-        experience:new FormArray([
-          new FormControl(null),
-          new FormControl(null),
-          new FormControl(null),
-          
-        ])
+        experience:new FormArray([])
 
 
       });
   }
   onSubmit(){
     console.log(this.resumeForm);
-    alert('Form Submitted Sucessfully')
+    // alert('Form Submitted Sucessfully')
     
+  }
+  onExpAdd():void{
+    const newExp=new FormGroup({
+      companyname:new FormControl(null, Validators.required),
+      position:new FormControl(null, Validators.required),
+      years:new FormGroup({
+        dateofjoining:new FormControl(null,Validators.required),
+        dateofresign:new FormControl(null,Validators.required),
+            }),
+          });
+   (this.resumeForm.get('experience') as FormArray).push(newExp);
+  
+
+  }
+  onExpRemove(index:any):void{
+    (this.resumeForm.get('experience')as FormArray).removeAt(index);
+
   }
 
 

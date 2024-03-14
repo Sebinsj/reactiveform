@@ -87,7 +87,21 @@
             </div>
 
             <div formArrayName="experience">
-                <button>Add experience</button>
+                <ng-container *ngFor="let exp of addexp,let i=index">
+                    <h5>Experience</h5>
+                    <input type="text" placeholder="company name" formControlName="companyname">
+                    <input type="text" placeholder="position" formControlName="position">
+                    <input type="date" placeholder="date of joining" formControlName="dateofjoining">
+                    <input type="date" placeholder="date of resign" formControlName="dateofresign">
+                    <button class="btn btn-sm btn-danger" (click)="onExpRemove(i)">Remove Experience</button>
+
+                    
+                </ng-container>
+               <div class="form-group">
+                <button class="btn btn-sm btn-primary" (click)="onExpAdd()">Add Experience</button>
+                
+            </div> 
+                
             </div>
 
                 <div style="padding-top: 20px;">
