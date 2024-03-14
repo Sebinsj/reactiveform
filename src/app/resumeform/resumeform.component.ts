@@ -61,6 +61,9 @@ export class ResumeformComponent implements OnInit {
     (this.resumeForm.get('experience')as FormArray).removeAt(index);
 
   }
+  onReset(){
+    this.resumeForm.reset()
+  }
 
 
 }

@@ -91,8 +91,11 @@
                     <h5>Experience</h5>
                     <input type="text" placeholder="company name" formControlName="companyname">
                     <input type="text" placeholder="position" formControlName="position">
-                    <input type="date" placeholder="date of joining" formControlName="dateofjoining">
-                    <input type="date" placeholder="date of resign" formControlName="dateofresign">
+                    <div formGroupName="years"> 
+                        <input type="date" placeholder="date of joining" formControlName="dateofjoining">
+                        <input type="date" placeholder="date of resign" formControlName="dateofresign">
+                     </div>
+                    
                     <button class="btn btn-sm btn-danger" (click)="onExpRemove(i)">Remove Experience</button>
 
                     
@@ -105,7 +108,7 @@
             </div>
 
                 <div style="padding-top: 20px;">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!resumeForm.valid">Submit</button>
                     <button type="reset" class="btn btn-danger">Reset</button>
                 </div>
                

@@ -1,7 +1,57 @@
-input.ng-invalid.ng-touched{
-    border:1px solid red
-}
-.help-block{
-    color:red;
-    font-size: x-small;
-}
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .help-block {
+        color: red;
+    }
+
+    .radio-inline {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    input[type="checkbox"] {
+        margin-right: 5px;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        margin-right: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+    }
+
+    h5 {
+        margin-top: 20px;
+    }
+
