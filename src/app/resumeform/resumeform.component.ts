@@ -24,7 +24,13 @@ export class ResumeformComponent implements OnInit {
         dateofbirth:new FormControl(null),
         email:new FormControl(null,[Validators.required,Validators.email]),
         gender:new FormControl(null),
-        languages:new FormControl(null),
+        languages:new FormGroup({
+          english:new FormControl(null),
+          hindi:new FormControl(null),
+          malayalam:new FormControl(null),
+          tamil:new FormControl(null),
+          others:new FormControl(null),
+        }),
 
         address:new FormGroup({
           house_no:new FormControl(null),
@@ -53,7 +59,7 @@ export class ResumeformComponent implements OnInit {
         dateofresign:new FormControl(null,Validators.required),
             }),
           });
-   (this.resumeForm.get('experience') as FormArray).push(newExp);
+       (this.resumeForm.get('experience') as FormArray).push(newExp);
   
 
   }
