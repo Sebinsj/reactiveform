@@ -55,3 +55,16 @@
         margin-top: 20px;
     }
 
+
+    body, html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container {
+        width: 50%; /* Adjust as needed */
+    }
+     

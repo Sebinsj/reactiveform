@@ -17,6 +17,16 @@ export class ResumeformComponent implements OnInit {
 
   }
 
+   pincodeValidator(control: FormControl): { [key: string]: any } | null {
+    const validPattern = /^\d{6}$/; // Regular expression for 6 digits
+
+    if (control.value && !validPattern.test(control.value)) {
+        return { 'invalidPincode': true }; // Return validation error if pincode doesn't match pattern
+    }
+
+    return null; // Return null if validation succeeds
+}
+
   ngOnInit(): void {
       this.resumeForm=new FormGroup({
         firstName: new FormControl(null,Validators.required),
@@ -37,7 +47,7 @@ export class ResumeformComponent implements OnInit {
           street:new FormControl(null),
           city:new FormControl(null,Validators.required),
           state:new FormControl(null,Validators.required),
-          pincode:new FormControl(null,[Validators.required]),
+          pincode:new FormControl(null,[Validators.required, this.pincodeValidator]),
           
         }),
         experience:new FormArray([])
@@ -47,7 +57,8 @@ export class ResumeformComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.resumeForm);
-    // alert('Form Submitted Sucessfully')
+    alert('Form Submitted Sucessfully')
+    
     
   }
   onExpAdd():void{
@@ -68,6 +79,7 @@ export class ResumeformComponent implements OnInit {
 
   }
   onReset(){
+   
     this.resumeForm.reset()
   }
 
