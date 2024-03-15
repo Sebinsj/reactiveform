@@ -9,6 +9,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ResumeformComponent implements OnInit {
   resumeForm!: FormGroup;
+  userSelectedLanguages:[]=[];
 
   genders=['Male','Female','Others'];
   languages=['Engilsh','Hindi','Malayalam','Tamil','Others']
@@ -81,6 +82,11 @@ export class ResumeformComponent implements OnInit {
   onReset(){
    
     this.resumeForm.reset()
+  }
+  selectedLanguages():void{
+
+    
+    
   }
 
 
