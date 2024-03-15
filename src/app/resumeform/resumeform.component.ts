@@ -64,11 +64,11 @@ export class ResumeformComponent implements OnInit {
   }
   onExpAdd():void{
     const newExp=new FormGroup({
-      companyname:new FormControl(null),
-      position:new FormControl(null),
+      companyname:new FormControl(null,Validators.required),
+      position:new FormControl(null,Validators.required),
       years:new FormGroup({
-        dateofjoining:new FormControl(null),
-        dateofresign:new FormControl(null),
+        dateofjoining:new FormControl(null,Validators.required),
+        dateofresign:new FormControl(null,Validators.required),
             }),
           });
        (this.resumeForm.get('experience') as FormArray).push(newExp);
