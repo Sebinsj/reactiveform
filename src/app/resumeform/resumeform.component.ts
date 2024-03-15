@@ -35,11 +35,11 @@ export class ResumeformComponent implements OnInit {
         email:new FormControl(null,[Validators.required,Validators.email]),
         gender:new FormControl(null),
         languages:new FormGroup({
-          english:new FormControl(null),
-          hindi:new FormControl(null),
-          malayalam:new FormControl(null),
-          tamil:new FormControl(null),
-          others:new FormControl(null),
+          english:new FormControl(false),
+          hindi:new FormControl(false),
+          malayalam:new FormControl(false),
+          tamil:new FormControl(false),
+          others:new FormControl(false),
         }),
 
         address:new FormGroup({
@@ -63,11 +63,11 @@ export class ResumeformComponent implements OnInit {
   }
   onExpAdd():void{
     const newExp=new FormGroup({
-      companyname:new FormControl(null, Validators.required),
-      position:new FormControl(null, Validators.required),
+      companyname:new FormControl(null),
+      position:new FormControl(null),
       years:new FormGroup({
-        dateofjoining:new FormControl(null,Validators.required),
-        dateofresign:new FormControl(null,Validators.required),
+        dateofjoining:new FormControl(null),
+        dateofresign:new FormControl(null),
             }),
           });
        (this.resumeForm.get('experience') as FormArray).push(newExp);
