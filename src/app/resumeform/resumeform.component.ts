@@ -62,19 +62,18 @@ export class ResumeformComponent implements OnInit {
     
     
   }
-  onExpAdd():void{
-    const newExp=new FormGroup({
-      companyname:new FormControl(null,Validators.required),
-      position:new FormControl(null,Validators.required),
-      years:new FormGroup({
-        dateofjoining:new FormControl(null,Validators.required),
-        dateofresign:new FormControl(null,Validators.required),
-            }),
-          });
-       (this.resumeForm.get('experience') as FormArray).push(newExp);
-  
-
+  onExpAdd(): void {
+    const newExp = new FormGroup({
+      companyname: new FormControl(null, Validators.required), // Initialize companyname FormControl
+      position: new FormControl(null, Validators.required),
+      years: new FormGroup({
+        dateofjoining: new FormControl(null, Validators.required),
+        dateofresign: new FormControl(null, Validators.required),
+      }),
+    });
+    (this.resumeForm.get('experience') as FormArray).push(newExp);
   }
+  
   onExpRemove(index:any):void{
     (this.resumeForm.get('experience')as FormArray).removeAt(index);
 

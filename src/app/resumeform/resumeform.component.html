@@ -113,7 +113,7 @@
             </div>
 
             <div formArrayName="experience">
-                <ng-container *ngFor="let exp of addexp,let i=index">
+                <ng-container *ngFor="let exp of addexp,let i=index" [formGroupName]="i">
                     <h5>Experience</h5>
                     <input type="text" placeholder="company name" formControlName="companyname">
                     <input type="text" placeholder="position" formControlName="position">
